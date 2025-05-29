@@ -6,6 +6,7 @@ import CourtDetails from './pages/CourtDetails';
 import Bookings from './pages/Bookings';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
@@ -16,8 +17,9 @@ function App() {
         <Route path="/courts" element={<Courts />} />
         <Route path="/courts/:id" element={<CourtDetails />} />
         <Route path="/bookings" element={<Bookings />} />
-        <Route path="/login" element={<Login />} />      F
+        <Route path="/login" element={<Login />} />      
         <Route path="/profile" element={<Profile />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Router>
   );

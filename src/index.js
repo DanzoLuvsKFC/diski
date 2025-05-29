@@ -5,7 +5,7 @@ import { AuthProvider } from './context/AuthContext'; // ✅ Add this
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider> {/* ✅ Wrap app */}
+    <AuthProvider>
       <App />
     </AuthProvider>
   </React.StrictMode>

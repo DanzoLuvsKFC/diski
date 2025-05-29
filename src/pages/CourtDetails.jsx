@@ -1,14 +1,15 @@
-import { useParams } from 'react-router-dom';
-import courts from '../data/courts';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
+import courts from '../data/courts';
 
 export default function CourtDetails() {
   const { id } = useParams();
   const court = courts.find(c => c.id === id);
+  const navigate = useNavigate();
+  const { user, addBooking } = useAuth();
 
   const [selectedSlot, setSelectedSlot] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
@@ -16,18 +17,24 @@ export default function CourtDetails() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!selectedSlot || !name || !email) {
-      setError('Please fill in all fields');
+
+    if (!selectedSlot) {
+      setError('Please select a time slot');
       setSuccess('');
-    } else {
-      // Simulate booking logic
-      console.log(`Booking made: ${name}, ${email}, slot: ${selectedSlot}, court: ${court.name}`);
-      setSuccess(`Booking confirmed for ${selectedSlot}`);
-      setError('');
-      setName('');
-      setEmail('');
-      setSelectedSlot('');
+      return;
     }
+
+    if (!user) {
+      // Redirect to signup page
+      navigate('/signup');
+      return;
+    }
+
+    // Add booking to global context
+    addBooking(court, selectedSlot);
+    setSuccess(`Booking confirmed for ${selectedSlot}`);
+    setError('');
+    setSelectedSlot('');
   };
 
   return (
@@ -49,15 +56,7 @@ export default function CourtDetails() {
             ))}
           </select>
         </div>
-        <div>
-          <label>Your Name:</label><br />
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        </div>
-        <div>
-          <label>Your Email:</label><br />
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </div>
-        <button type="submit">Book Now</button>
+        <button type="submit" style={{ marginTop: '1rem' }}>Book Now</button>
       </form>
 
       {error && <p style={{ color: 'red' }}>{error}</p>}
