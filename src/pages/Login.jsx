@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 export default function Login() {
-  return (
-    <div>
-      <h1>LOGIN</h1>
-      <p>Please login with detials.</p>
-    </div>
-  );
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Redirect to signup page automatically
+    navigate('/signup');
+  }, [navigate]);
+
+  return null;
 }
