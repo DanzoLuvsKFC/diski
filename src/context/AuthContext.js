@@ -5,8 +5,7 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [bookings, setBookings] = useState([]);
-
-  // New: profile data
+  const [bookingHistory, setBookingHistory] = useState([]); // ✅ new
   const [profile, setProfile] = useState({
     preferredFoot: '',
     position: '',
@@ -23,6 +22,7 @@ export function AuthProvider({ children }) {
   const logout = () => {
     setUser(null);
     setBookings([]);
+    setBookingHistory([]);
     setProfile({
       preferredFoot: '',
       position: '',
@@ -38,6 +38,13 @@ export function AuthProvider({ children }) {
     setBookings(prev => [...prev, { court, slot }]);
   };
 
+  // ✅ move a booking to history
+  const markAsPlayedOrCancelled = (index) => {
+    const bookingToMove = bookings[index];
+    setBookings(prev => prev.filter((_, i) => i !== index));
+    setBookingHistory(prev => [...prev, bookingToMove]);
+  };
+
   return (
     <AuthContext.Provider value={{
       user,
@@ -45,6 +52,8 @@ export function AuthProvider({ children }) {
       logout,
       bookings,
       addBooking,
+      bookingHistory,
+      markAsPlayedOrCancelled,
       profile,
       setProfile
     }}>
