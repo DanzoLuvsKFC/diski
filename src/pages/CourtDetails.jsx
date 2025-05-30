@@ -1,19 +1,30 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import courts from '../data/courts';
 
 export default function CourtDetails() {
   const { id } = useParams();
-  const court = courts.find(c => c.id === id);
   const navigate = useNavigate();
   const { user, addBooking } = useAuth();
+
+  const [court, setCourt] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const [selectedSlot, setSelectedSlot] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  if (!court) return <p>Court not found</p>;
+  useEffect(() => {
+    // Simulate data loading
+    const timer = setTimeout(() => {
+      const foundCourt = courts.find(c => c.id === id);
+      setCourt(foundCourt);
+      setLoading(false);
+    }, 3000); // 1.5 second simulated delay
+
+    return () => clearTimeout(timer);
+  }, [id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,17 +36,18 @@ export default function CourtDetails() {
     }
 
     if (!user) {
-      // Redirect to signup page
       navigate('/signup');
       return;
     }
 
-    // Add booking to global context
     addBooking(court, selectedSlot);
     setSuccess(`Booking confirmed for ${selectedSlot}`);
     setError('');
     setSelectedSlot('');
   };
+
+  if (loading) return <p style={{ padding: '1rem' }}>Loading court details...</p>;
+  if (!court) return <p style={{ padding: '1rem' }}>Court not found</p>;
 
   return (
     <div style={{ padding: '1rem' }}>
