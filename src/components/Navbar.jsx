@@ -33,12 +33,12 @@ export default function Navbar() {
             {user ? (
               <>
                 <span className="nav-user">{user.name}</span>
-                <button onClick={handleLogout}>Logout</button>
+                <button className="auth-button" onClick={handleLogout}>Logout</button>
               </>
             ) : (
               <>
                 <span className="nav-guest">Guest</span>
-                <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
+                <Link to="/login" className="auth-button" onClick={() => setMenuOpen(false)}>Login</Link>
               </>
             )}
           </div>
@@ -50,12 +50,12 @@ export default function Navbar() {
         {user ? (
           <>
             <span className="nav-user">{user.name}</span>
-            <button onClick={handleLogout}>Logout</button>
+            <button className="auth-button" onClick={handleLogout}>Logout</button>
           </>
         ) : (
           <>
             <span className="nav-guest">Guest</span>
-            <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
+            <Link to="/login" className="auth-button" onClick={() => setMenuOpen(false)}>Login</Link>
           </>
         )}
       </div>

@@ -144,13 +144,12 @@
   }
 }
 
-/* Force all links inside .nav-auth to be white no matter their state */
 .nav-auth a,
 .nav-auth a:link,
 .nav-auth a:visited,
 .nav-auth a:active,
 .nav-auth a:focus {
-  color: white !important;
+  color: white;
   text-decoration: none;
   transition: opacity 0.3s ease;
 }
@@ -159,8 +158,26 @@
   opacity: 0.8;
 }
 
-/* Optional: also apply this globally if needed */
 .navbar a {
-  color: white !important;
+  color: white ;
   text-decoration: none;
+}
+
+.auth-button {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 16px;
+  
+}
+
+.auth-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
 }
