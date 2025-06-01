@@ -1,34 +1,122 @@
+/* Global navbar styling */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #222;
+  background-color: #5db075;
   color: white;
   font-family: 'Satoshi', sans-serif;
+  position: relative;
 }
 
-.nav-left a {
+/* Brand/logo */
+.brand-logo {
+  font-weight: 700;
+  font-size: 1.5rem;
   color: white;
   text-decoration: none;
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 
-.nav-left a:hover {
-  text-decoration: underline;
+.brand-logo:hover {
+  opacity: 0.8;
 }
 
+/* Left side: logo + nav links */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+}
+
+/* Right side: login/logout */
 .nav-right {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-right a:hover {
+  opacity: 0.8;
+}
+
 .nav-user {
-  font-weight: bold;
-  color: #00ff88;
+  font-weight: 900;
+  color: #ffffff;
 }
 
 .nav-guest {
-  color: #aaa;
+  color: #ffffffe4;
+}
+
+.nav-links button {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav-links button:hover {
+  opacity: 0.8;
+}
+
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    background-color: #5db075;
+    width: 100%;
+    padding: 1rem 2rem;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-right {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
 }
