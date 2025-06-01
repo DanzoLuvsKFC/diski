@@ -46,23 +46,7 @@
   opacity: 0.8;
 }
 
-/* Right side: login/logout */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.nav-right a {
-  color: white;
-  text-decoration: none;
-  transition: opacity 0.3s ease;
-}
-
-.nav-right a:hover {
-  opacity: 0.8;
-}
-
+/* User/guest display */
 .nav-user {
   font-weight: 900;
   color: #ffffff;
@@ -72,7 +56,18 @@
   color: #ffffffe4;
 }
 
-.nav-links button {
+/* Shared auth button/link styles */
+.nav-auth a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-auth a:hover {
+  opacity: 0.8;
+}
+
+.nav-auth button {
   background: transparent;
   color: white;
   border: 1px solid white;
@@ -81,8 +76,27 @@
   cursor: pointer;
 }
 
-.nav-links button:hover {
+.nav-auth button:hover {
   opacity: 0.8;
+}
+
+/* Flex container for auth items */
+.nav-auth {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Desktop-only auth (right aligned) */
+.desktop-auth {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Mobile-only auth inside menu */
+.mobile-auth {
+  display: none;
 }
 
 /* Hamburger icon */
@@ -93,7 +107,7 @@
   color: white;
 }
 
-/* Mobile view */
+/* Responsive styles */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -112,11 +126,41 @@
     display: flex;
   }
 
-  .nav-right {
-    display: none;
-  }
-
   .hamburger {
     display: block;
   }
+
+  /* Hide right-side auth */
+  .desktop-auth {
+    display: none;
+  }
+
+  /* Show auth inside menu */
+  .mobile-auth {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+/* Force all links inside .nav-auth to be white no matter their state */
+.nav-auth a,
+.nav-auth a:link,
+.nav-auth a:visited,
+.nav-auth a:active,
+.nav-auth a:focus {
+  color: white !important;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-auth a:hover {
+  opacity: 0.8;
+}
+
+/* Optional: also apply this globally if needed */
+.navbar a {
+  color: white !important;
+  text-decoration: none;
 }

@@ -21,19 +21,32 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-left">
-        {/* Logo */}
         <Link to="/" className="brand-logo">DiSK!</Link>
 
-        {/* Nav links - visible on desktop, toggled on mobile */}
         <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
           <Link to="/courts" onClick={() => setMenuOpen(false)}>Courts</Link>
           <Link to="/bookings" onClick={() => setMenuOpen(false)}>Bookings</Link>
           <Link to="/profile" onClick={() => setMenuOpen(false)}>Profile</Link>
+
+          {/* Mobile-only auth */}
+          <div className="nav-auth mobile-auth">
+            {user ? (
+              <>
+                <span className="nav-user">{user.name}</span>
+                <button onClick={handleLogout}>Logout</button>
+              </>
+            ) : (
+              <>
+                <span className="nav-guest">Guest</span>
+                <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
+              </>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Right side login/logout */}
-      <div className="nav-right">
+      {/* Desktop-only auth */}
+      <div className="nav-right desktop-auth">
         {user ? (
           <>
             <span className="nav-user">{user.name}</span>
@@ -47,7 +60,6 @@ export default function Navbar() {
         )}
       </div>
 
-      {/* Hamburger icon for mobile only */}
       <div className="hamburger" onClick={toggleMenu}>☰</div>
     </nav>
   );
