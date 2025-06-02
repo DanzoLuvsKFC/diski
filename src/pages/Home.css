@@ -30,23 +30,45 @@
 }
 
 .carousel-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
 }
 
 .court-card {
+  width: 350px; /* Smaller width */
   border: 1px solid #ccc;
   padding: 1rem;
   border-radius: 6px;
   background-color: #fff;
   text-align: center;
+  transition: transform 0.3s ease;
 }
 
 .court-card img {
   width: 100%;
-  border-radius: 6px;
-  margin-bottom: 0.5rem;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.court-card:hover {
+  transform: scale(1.03);
+}
+
+/* Responsive behavior */
+@media (max-width: 992px) {
+  .carousel-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Section 3: CTA */
