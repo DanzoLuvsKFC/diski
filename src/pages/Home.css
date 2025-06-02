@@ -29,6 +29,12 @@
   padding: 0 2rem;
 }
 
+.home-carousel h2{
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
 .carousel-container {
   display: flex;
   justify-content: center;
@@ -93,7 +99,7 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 1rem;
-  transition: background 0.3s;
+  transition: background-color 0.3s;
 }
 
 .cta-button:hover {
