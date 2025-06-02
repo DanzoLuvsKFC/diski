@@ -60,7 +60,12 @@ export default function Navbar() {
         )}
       </div>
 
-      <div className="hamburger" onClick={toggleMenu}>☰</div>
+      {/* Animated Hamburger */}
+      <div className={`hamburger ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
   );
 }

@@ -99,43 +99,75 @@
   display: none;
 }
 
-/* Hamburger icon */
+/* Hamburger icon (lines) */
 .hamburger {
   display: none;
-  font-size: 1.8rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 22px;
   cursor: pointer;
-  color: white;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: white;
+  transition: 0.4s;
+  border-radius: 2px;
+}
+
+/* Animate to X */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Responsive styles */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    background-color: #5db075;
-    width: 100%;
-    padding: 1rem 2rem;
-    z-index: 1000;
-  }
-
-  .nav-links.active {
+  .hamburger {
     display: flex;
   }
 
-  .hamburger {
-    display: block;
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 63px;
+    left: 0;
+    background-color: #5db075;
+    width: 100%;
+    z-index: 1000;
+
+    /* Animation setup */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    padding: 0 2rem;
   }
 
-  /* Hide right-side auth */
+  .nav-links.active {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+    padding: 1rem 2rem;
+  }
+
   .desktop-auth {
     display: none;
   }
 
-  /* Show auth inside menu */
   .mobile-auth {
     display: flex;
     flex-direction: row;
@@ -144,6 +176,7 @@
   }
 }
 
+/* Extra fixes and global link style overrides */
 .nav-auth a,
 .nav-auth a:link,
 .nav-auth a:visited,
@@ -159,10 +192,11 @@
 }
 
 .navbar a {
-  color: white ;
+  color: white;
   text-decoration: none;
 }
 
+/* Reusable login/logout button styling */
 .auth-button {
   background: transparent;
   color: white;
@@ -174,7 +208,6 @@
   transition: all 0.3s ease;
   text-decoration: none;
   font-size: 16px;
-  
 }
 
 .auth-button:hover {
