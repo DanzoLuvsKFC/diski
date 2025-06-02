@@ -1,0 +1,9 @@
+/* Footer.css */
+.footer {
+  background-color: #5db075;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 0.9rem;
+}
