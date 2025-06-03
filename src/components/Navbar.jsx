@@ -20,51 +20,50 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="nav-left">
-        <Link to="/" className="brand-logo">DiSK!</Link>
+      <div className="navbar-wrapper">
+        <div className="nav-left">
+          <Link to="/" className="brand-logo">DiSK!</Link>
 
-        <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
-          <Link to="/courts" onClick={() => setMenuOpen(false)}>Courts</Link>
-          <Link to="/bookings" onClick={() => setMenuOpen(false)}>Bookings</Link>
-          <Link to="/profile" onClick={() => setMenuOpen(false)}>Profile</Link>
+          <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
+            <Link to="/courts" onClick={() => setMenuOpen(false)}>Courts</Link>
+            <Link to="/bookings" onClick={() => setMenuOpen(false)}>Bookings</Link>
+            <Link to="/profile" onClick={() => setMenuOpen(false)}>Profile</Link>
 
-          {/* Mobile-only auth */}
-          <div className="nav-auth mobile-auth">
-            {user ? (
-              <>
-                <span className="nav-user">{user.name}</span>
-                <button className="auth-button" onClick={handleLogout}>Logout</button>
-              </>
-            ) : (
-              <>
-                <span className="nav-guest">Guest</span>
-                <Link to="/login" className="auth-button" onClick={() => setMenuOpen(false)}>Login</Link>
-              </>
-            )}
+            <div className="nav-auth mobile-auth">
+              {user ? (
+                <>
+                  <span className="nav-user">{user.name}</span>
+                  <button className="auth-button" onClick={handleLogout}>Logout</button>
+                </>
+              ) : (
+                <>
+                  <span className="nav-guest">Guest</span>
+                  <Link to="/login" className="auth-button" onClick={() => setMenuOpen(false)}>Login</Link>
+                </>
+              )}
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Desktop-only auth */}
-      <div className="nav-right desktop-auth">
-        {user ? (
-          <>
-            <span className="nav-user">{user.name}</span>
-            <button className="auth-button" onClick={handleLogout}>Logout</button>
-          </>
-        ) : (
-          <>
-            <span className="nav-guest">Guest</span>
-            <Link to="/login" className="auth-button" onClick={() => setMenuOpen(false)}>Login</Link>
-          </>
-        )}
-      </div>
+        <div className="nav-right desktop-auth">
+          {user ? (
+            <>
+              <span className="nav-user">{user.name}</span>
+              <button className="auth-button" onClick={handleLogout}>Logout</button>
+            </>
+          ) : (
+            <>
+              <span className="nav-guest">Guest</span>
+              <Link to="/login" className="auth-button" onClick={() => setMenuOpen(false)}>Login</Link>
+            </>
+          )}
+        </div>
 
-      {/* Animated Hamburger */}
-      <div className={`hamburger ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-        <span></span>
-        <span></span>
-        <span></span>
+        <div className={`hamburger ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </nav>
   );
