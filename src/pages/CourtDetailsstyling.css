@@ -1,6 +1,6 @@
 .court-details-container {
     font-family: 'Satoshi', sans-serif;
-    height: 92vh;
+    min-height: 92vh;
 }
 
 .court-image {
