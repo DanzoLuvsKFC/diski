@@ -31,8 +31,9 @@
 
 .home-carousel h2{
   text-align: center;
-  font-size: 30px;
+  font-size: 45px;
   font-weight: bold;
+  margin-top: 0px;
 }
 
 .carousel-container {
@@ -82,8 +83,15 @@
   background-color: #f4f4f4;
   text-align: center;
   padding: 2rem 1rem;
-  height: 400px;
+  height: 650px;
+
+  /* Add these for vertical centering */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .home-cta h2 {
   font-size: 2rem;
