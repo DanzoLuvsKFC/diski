@@ -1,23 +1,26 @@
 import { useAuth } from '../context/AuthContext';
-import { useState } from 'react';
-
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ import this
 
 export default function Profile() {
   const { user, profile, setProfile } = useAuth();
   const [isEditing, setIsEditing] = useState(false);
   const [tempProfile, setTempProfile] = useState(profile);
+  const navigate = useNavigate(); // ✅ initialize navigate
 
-  if (!user) {
-    return <p>Please sign in to see your profile.</p>;
-  }
+  // ✅ redirect to signup if not logged in
+  useEffect(() => {
+    if (!user) {
+      navigate('/signup');
+    }
+  }, [user, navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Enforce rating max of 99
     if (name === 'rating') {
       const num = parseInt(value);
-      if (num > 99) return; // Don't update if value exceeds 99
+      if (num > 99) return;
     }
 
     setTempProfile(prev => ({ ...prev, [name]: value }));
@@ -35,8 +38,8 @@ export default function Profile() {
 
   return (
     <div style={{ padding: '1rem' }}>
-      <h1>Welcome, {user.name}</h1>
-      <p>Email: {user.email}</p>
+      <h1>Welcome, {user?.name}</h1>
+      <p>Email: {user?.email}</p>
 
       <h2>Soccer Profile</h2>
 

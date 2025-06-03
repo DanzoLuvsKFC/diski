@@ -1,10 +1,20 @@
 import { useAuth } from '../context/AuthContext';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ import navigate
 
 export default function Bookings() {
   const { user, bookings, bookingHistory, markAsPlayedOrCancelled } = useAuth();
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // ✅ initialize navigate
 
+  // ✅ Redirect if not logged in
+  useEffect(() => {
+    if (!user) {
+      navigate('/signup');
+    }
+  }, [user, navigate]);
+
+  // Simulate loading delay (2 seconds) only once
   useEffect(() => {
     const alreadyLoaded = sessionStorage.getItem('bookingsLoaded');
 
@@ -19,10 +29,6 @@ export default function Bookings() {
       return () => clearTimeout(timer);
     }
   }, []);
-
-  if (!user) {
-    return <p>Please sign in to view your bookings.</p>;
-  }
 
   if (loading) {
     return (
@@ -42,7 +48,14 @@ export default function Bookings() {
       ) : (
         <ul>
           {bookings.map((b, index) => (
-            <li key={index} style={{ marginBottom: '1rem', borderBottom: '1px solid #ccc', paddingBottom: '1rem' }}>
+            <li
+              key={index}
+              style={{
+                marginBottom: '1rem',
+                borderBottom: '1px solid #ccc',
+                paddingBottom: '1rem'
+              }}
+            >
               <strong>{b.court.name}</strong><br />
               Location: {b.court.location}<br />
               Time Slot: {b.slot}<br />
