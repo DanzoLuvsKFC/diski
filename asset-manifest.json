@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/diski/static/css/main.fad0f19e.css",
+    "main.js": "/diski/static/js/main.1eefceaa.js",
+    "index.html": "/diski/index.html",
+    "main.fad0f19e.css.map": "/diski/static/css/main.fad0f19e.css.map",
+    "main.1eefceaa.js.map": "/diski/static/js/main.1eefceaa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fad0f19e.css",
+    "static/js/main.1eefceaa.js"
+  ]
+}
