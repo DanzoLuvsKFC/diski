@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import './Sign.css'; // Make sure this CSS file exists
 
 export default function SignUp() {
   const [name, setName] = useState('');
@@ -16,24 +17,36 @@ export default function SignUp() {
       return;
     }
 
-    login(name, email); // Set user in context
-    navigate('/bookings'); // Redirect after sign up
+    login(name, email);
+    navigate('/bookings');
   };
 
   return (
-    <div style={{ padding: '1rem' }}>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: '1rem' }}>
-          <label>Your Name:</label><br />
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        </div>
-        <div style={{ marginBottom: '1rem' }}>
-          <label>Your Email:</label><br />
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </div>
-        <button type="submit">Complete Sign Up</button>
-      </form>
+    <div className="signup-container">
+      <div className="signup-box">
+        <h1>Sign Up</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            {/* Removed the label and added placeholder */}
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Name"
+            />
+          </div>
+          <div className="form-group">
+            {/* Removed the label and added placeholder */}
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+            />
+          </div>
+          <button type="submit">Complete Sign Up</button>
+        </form>
+      </div>
     </div>
   );
 }
