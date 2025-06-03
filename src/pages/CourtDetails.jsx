@@ -1,7 +1,10 @@
+// CourtDetails.jsx
+
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import courts from '../data/courts';
+import './CourtDetailsstyling.css';
 
 export default function CourtDetails() {
   const { id } = useParams();
@@ -10,18 +13,16 @@ export default function CourtDetails() {
 
   const [court, setCourt] = useState(null);
   const [loading, setLoading] = useState(true);
-
   const [selectedSlot, setSelectedSlot] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
   useEffect(() => {
-    // Simulate data loading
     const timer = setTimeout(() => {
       const foundCourt = courts.find(c => c.id === id);
       setCourt(foundCourt);
       setLoading(false);
-    }, 3000); // 1.5 second simulated delay
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, [id]);
@@ -50,29 +51,44 @@ export default function CourtDetails() {
   if (!court) return <p style={{ padding: '1rem' }}>Court not found</p>;
 
   return (
-    <div style={{ padding: '1rem' }}>
-      <h1>{court.name}</h1>
-      <img src={court.image} alt={court.name} style={{ width: '100%', maxWidth: '500px' }} />
-      <p>Location: {court.location}</p>
-      <p>Price: R{court.price}</p>
-      <p>Rating: {court.rating} ⭐</p>
+    <div className="court-details-container">
+      <div>
+        <img src={court.image} alt={court.name} className="court-image" />
+      </div>
 
-      <h3>Book This Court</h3>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Select a time slot:</label><br />
-          <select value={selectedSlot} onChange={(e) => setSelectedSlot(e.target.value)}>
-            <option value="">-- Select --</option>
-            {court.availableSlots.map((slot, idx) => (
-              <option key={idx} value={slot}>{slot}</option>
-            ))}
-          </select>
+      <div className="court-content">
+        <div className="court-info">
+          <h2>{court.name}</h2>
+          <p>{court.location}</p>
+          <p>Price: R{court.price}</p>
+          <p>Rating: {court.rating} ⭐</p>
+          <p><strong>Amenities:</strong> {court.amenities?.join(', ')}</p>
+          <p><strong>Contact:</strong> {court.contact}</p>
         </div>
-        <button type="submit" style={{ marginTop: '1rem' }}>Book Now</button>
-      </form>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {success && <p style={{ color: 'green' }}>{success}</p>}
+        <div className="time-slot-section">
+          <h3>Time slots</h3>
+          <div className="time-slots-grid">
+            {court.availableSlots.map((slot, idx) => (
+              <button
+                key={idx}
+                onClick={() => setSelectedSlot(slot)}
+                className={`time-slot-button ${selectedSlot === slot ? 'selected' : ''}`}
+              >
+                {slot}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="confirm-booking">
+        <form onSubmit={handleSubmit}>
+          <button type="submit">Confirm booking</button>
+        </form>
+        {error && <p className="error-message">{error}</p>}
+        {success && <p className="success-message">{success}</p>}
+      </div>
     </div>
   );
 }

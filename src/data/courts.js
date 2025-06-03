@@ -7,7 +7,10 @@ const courts = [
     price: 300,
     rating: 4.5,
     reviews: 20,
-    availableSlots: ['18:00', '19:00', '20:00']
+    description: 'A buzzing rooftop pitch ideal for after-work games with skyline views.',
+    amenities: ['Changing Rooms', 'Refreshments', 'Street Parking'],
+    contact: '011 123 4567',
+    availableSlots: ['16:00', '17:00', '18:00', '19:00', '20:00', '20:30', '21:00', '21:30', '22:00']
   },
   {
     id: '2',
@@ -17,7 +20,10 @@ const courts = [
     price: 350,
     rating: 4.8,
     reviews: 45,
-    availableSlots: ['17:00', '18:30', '20:00']
+    description: 'Premium 5-a-side courts in the heart of Sandton with modern facilities.',
+    amenities: ['Secure Parking', 'Café', 'Showers'],
+    contact: '011 234 5678',
+    availableSlots: ['16:00', '17:00', '17:30', '18:30', '19:00', '20:00', '20:30', '21:00', '22:00']
   },
   {
     id: '3',
@@ -27,7 +33,10 @@ const courts = [
     price: 280,
     rating: 4.3,
     reviews: 33,
-    availableSlots: ['16:00', '17:30', '19:00']
+    description: 'A cozy community court perfect for friendly matches and local tournaments.',
+    amenities: ['Benches', 'Nearby Cafés'],
+    contact: '011 345 6789',
+    availableSlots: ['15:30', '16:00', '17:30', '18:00', '19:00', '20:00', '20:30', '21:00', '21:30']
   },
   {
     id: '4',
@@ -37,7 +46,10 @@ const courts = [
     price: 320,
     rating: 4.6,
     reviews: 51,
-    availableSlots: ['18:00', '19:00', '20:30']
+    description: 'Urban-style indoor court surrounded by vibrant art and culture.',
+    amenities: ['Indoor Seating', 'Snack Bar', 'AC'],
+    contact: '011 456 7890',
+    availableSlots: ['16:30', '17:30', '18:00', '18:30', '19:00', '19:30', '20:30', '21:00', '22:00']
   },
   {
     id: '5',
@@ -47,7 +59,10 @@ const courts = [
     price: 250,
     rating: 4.2,
     reviews: 27,
-    availableSlots: ['17:00', '18:30', '20:00']
+    description: 'Affordable and well-maintained pitch popular with locals and schools.',
+    amenities: ['Kiosk', 'Parking Area'],
+    contact: '011 567 8901',
+    availableSlots: ['16:00', '17:00', '17:30', '18:30', '19:00', '20:00', '20:30', '21:00', '22:00']
   },
   {
     id: '6',
@@ -57,7 +72,10 @@ const courts = [
     price: 400,
     rating: 4.9,
     reviews: 88,
-    availableSlots: ['16:30', '18:00', '19:30']
+    description: 'High-end turf facility with advanced booking features and lounges.',
+    amenities: ['Lounge Area', 'Wi-Fi', 'Bar'],
+    contact: '011 678 9012',
+    availableSlots: ['16:30', '17:00', '18:00', '18:30', '19:30', '20:00', '20:30', '21:00', '21:30']
   },
   {
     id: '7',
@@ -67,7 +85,10 @@ const courts = [
     price: 270,
     rating: 4.4,
     reviews: 39,
-    availableSlots: ['17:00', '18:30', '20:00']
+    description: 'Great balance between price and quality with accessible location.',
+    amenities: ['Free Wi-Fi', 'On-site Shop'],
+    contact: '011 789 0123',
+    availableSlots: ['16:00', '17:00', '17:30', '18:30', '19:00', '20:00', '20:30', '21:00', '21:30']
   },
   {
     id: '8',
@@ -77,7 +98,10 @@ const courts = [
     price: 230,
     rating: 4.0,
     reviews: 22,
-    availableSlots: ['16:00', '17:30', '19:00']
+    description: 'Simple but solid pitch setup, great for casual games.',
+    amenities: ['Toilets', 'Street Parking'],
+    contact: '011 890 1234',
+    availableSlots: ['16:00', '16:30', '17:30', '18:00', '18:30', '19:00', '20:00', '20:30', '21:00']
   },
   {
     id: '9',
@@ -87,7 +111,10 @@ const courts = [
     price: 210,
     rating: 4.1,
     reviews: 18,
-    availableSlots: ['16:00', '17:30', '19:00']
+    description: 'Lively court with strong local energy and supportive staff.',
+    amenities: ['Locker Room', 'Tuck Shop'],
+    contact: '011 901 2345',
+    availableSlots: ['15:30', '16:00', '17:00', '17:30', '18:30', '19:00', '20:00', '21:00', '22:00']
   },
   {
     id: '10',
@@ -97,7 +124,10 @@ const courts = [
     price: 295,
     rating: 4.6,
     reviews: 36,
-    availableSlots: ['17:00', '18:30', '20:00']
+    description: 'Perfect for late night bookings with clear visibility and smooth surface.',
+    amenities: ['Night Café', 'First Aid Station'],
+    contact: '011 912 3456',
+    availableSlots: ['16:00', '17:00', '17:30', '18:30', '19:00', '20:00', '20:30', '21:00', '22:00']
   },
   {
     id: '11',
@@ -107,7 +137,10 @@ const courts = [
     price: 310,
     rating: 4.7,
     reviews: 42,
-    availableSlots: ['18:00', '19:00', '20:30']
+    description: 'Stylish facility in an upmarket area with premium turf and seating.',
+    amenities: ['VIP Zone', 'Shaded Seating', 'Smooth Parking'],
+    contact: '011 923 4567',
+    availableSlots: ['16:00', '17:00', '18:00', '18:30', '19:00', '19:30', '20:30', '21:00', '21:30']
   },
   {
     id: '12',
@@ -117,9 +150,11 @@ const courts = [
     price: 260,
     rating: 4.3,
     reviews: 28,
-    availableSlots: ['17:00', '18:30', '20:00']
+    description: 'Chilled-out soccer space with community vibe and solid pitch quality.',
+    amenities: ['Basic Shop', 'Free Water Station'],
+    contact: '011 934 5678',
+    availableSlots: ['16:00', '17:00', '17:30', '18:30', '19:00', '20:00', '20:30', '21:00', '22:00']
   }
-
 ];
 
 export default courts;

@@ -1,0 +1,130 @@
+.court-details-container {
+    font-family: 'Satoshi', sans-serif;
+    height: 92vh;
+}
+
+.court-image {
+    
+    width: 100%;
+    height: 225px;
+    object-fit: cover;
+    border-radius: 0%;
+}
+
+.court-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 1rem;
+    gap: 0rem;
+}
+
+.court-info {
+    flex: 1 1 300px;
+}
+
+.court-info h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.court-info p {
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-size: 15px;
+}
+
+.time-slot-section {
+    flex: 1 1 300px;
+}
+
+.time-slot-section h3 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 25px;
+}
+
+.time-slots-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+.time-slot-button {
+    padding: 0.75rem;
+    background-color: #ddd;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.time-slot-button.selected {
+    background-color: #5db075;
+    color: #fff;
+}
+
+.confirm-booking {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.confirm-booking button {
+    background-color: #5db075;
+    color: #fff;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 1rem;
+}
+
+.success-message {
+    color: green;
+    margin-top: 1rem;
+}
+
+.court-info p {
+  color: #555;
+  margin-bottom: 0.5rem;
+  margin-top: 0rem;
+  font-size: 20px;
+}
+
+.court-info p strong {
+  font-weight: 600;
+  color: #333;
+}
+
+.description {
+  margin-top: 1rem;
+  font-style: italic;
+  font-size: 18px;
+  color: #444;
+}
+
+
+@media (min-width: 768px) {
+    .court-content {
+        justify-content: center; /* center both blocks */
+        gap: 15rem; /* spacing between them */
+    }
+
+    .court-info,
+    .time-slot-section {
+        flex: 0 0 450px; /* fixed width instead of flexible */
+        max-width: 400px;
+    }
+}
