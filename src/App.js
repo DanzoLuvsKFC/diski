@@ -11,7 +11,7 @@ import SignUp from './pages/SignUp';
 
 function App() {
   return (
-    <Router>
+    <Router basename='/diski'>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
