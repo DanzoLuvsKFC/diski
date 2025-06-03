@@ -12,7 +12,8 @@
 
 /* Brand/logo */
 .brand-logo {
-  font-weight: 700;
+  font-family: 'SatoshiBold', sans-serif;
+  font-weight: 800; 
   font-size: 1.5rem;
   color: white;
   text-decoration: none;
