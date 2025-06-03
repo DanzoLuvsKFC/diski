@@ -1,0 +1,54 @@
+/* Courts.css */
+.courts-container {
+  padding: 2rem;
+  text-align: center;
+}
+
+.loading {
+  padding: 3rem;
+  text-align: center;
+  font-size: 2rem;
+  color: teal;
+}
+
+.court-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.court-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  background: #fff;
+}
+
+.court-card:hover {
+  transform: translateY(-5px);
+}
+
+.court-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.details-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.details-link:hover {
+  color: #0056b3;
+}

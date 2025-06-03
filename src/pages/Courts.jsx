@@ -1,13 +1,14 @@
+// Courts.jsx
 import { useEffect, useState } from 'react';
 import courtsData from '../data/courts';
 import { Link } from 'react-router-dom';
+import './Courtstyle.css';
 
 export default function Courts() {
   const [courts, setCourts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // If we've already loaded courts, don't show loader again
     const alreadyLoaded = sessionStorage.getItem('courtsLoaded');
 
     if (alreadyLoaded) {
@@ -25,24 +26,24 @@ export default function Courts() {
 
   if (loading) {
     return (
-      <div style={{ padding: '3rem', textAlign: 'center', fontSize: '2rem', color: 'teal' }}>
+      <div className="loading">
         ⚽ Loading courts...
       </div>
     );
   }
 
   return (
-    <div style={{ padding: '1rem' }}>
-      <h1>Available Courts</h1>
-      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-        {courts.map(court => (
-          <div key={court.id} style={{ border: '1px solid #ccc', padding: '1rem', width: '300px' }}>
-            <img src={court.image} alt={court.name} style={{ width: '100%' }} />
+    <div className="courts-container">
+      <h1>Available Courts in Johannesburg</h1>
+      <div className="court-grid">
+        {courts.map((court) => (
+          <div key={court.id} className="court-card">
+            <img src={court.image} alt={court.name} className="court-image" />
             <h3>{court.name}</h3>
             <p>{court.location}</p>
             <p>Price: R{court.price}</p>
             <p>Rating: {court.rating} ⭐ ({court.reviews} reviews)</p>
-            <Link to={`/courts/${court.id}`}>View Details</Link>
+            <Link to={`/courts/${court.id}`} className="details-link">View Details</Link>
           </div>
         ))}
       </div>
