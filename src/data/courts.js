@@ -3,7 +3,7 @@ const courts = [
     id: '1',
     name: 'Braamfontein Fives',
     location: 'Braamfontein, Johannesburg',
-    image: '/court-images/braamfontein.jpeg',
+    image: '/court-images/braamfontein.jpg',
     price: 300,
     rating: 4.5,
     reviews: 20,
