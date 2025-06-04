@@ -20,9 +20,9 @@ export default function Home() {
         <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
           <DotGrid
             dotSize={10}
-            gap={15}
-            baseColor="#ffffff"
-            activeColor="#5db075"
+            gap={40}
+            baseColor="#5db075"
+            activeColor="#ffffff"
             proximity={120}
             shockRadius={250}
             shockStrength={5}

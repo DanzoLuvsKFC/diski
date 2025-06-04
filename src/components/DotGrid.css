@@ -7,6 +7,7 @@
   width: 100%;
   position: relative;
   pointer-events: none;
+  
 }
 
 .dot-grid__wrap {
@@ -22,6 +23,8 @@
   flex-wrap: wrap;
   gap: var(--dot-gap);
   pointer-events: none;
+  filter: blur(1px);
+  
 }
 
 .dot-grid__dot {

@@ -7,7 +7,7 @@ gsap.registerPlugin(InertiaPlugin);
 
 const DotGrid = ({
   dotSize = 16,
-  gap = 32,
+  gap = 64,
   baseColor = "#ffffff",
   activeColor = "#5db075",
   proximity = 150,

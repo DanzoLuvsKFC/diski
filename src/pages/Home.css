@@ -7,7 +7,7 @@
 /* Section 1: Hero (Placeholder for parallax) */
 .home-hero {
   height: 500px;
-  background-color: #5db075;
+  background-color: #f4f4f4;
   color: white;
   display: flex;
   align-items: center;
@@ -19,10 +19,14 @@
 .hero-content h1 {
   font-size: 2.5rem;
   margin: 0.5px;
+  color: black;
+  
 }
 
 .hero-content p {
   font-size: 1.2rem;
+  color: black;
+  font-family: 'SatoshiBold';
 }
 
 /* Section 2: Carousel (3 cards visible at a time) */
@@ -179,7 +183,7 @@
   position: relative;
   height: 600px;
   overflow: hidden;
-  background: #000; /* Optional dark background for contrast */
+  
 }
 
 .hero-content {
