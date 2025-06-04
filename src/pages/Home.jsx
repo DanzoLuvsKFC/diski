@@ -1,7 +1,9 @@
 import courts from '../data/courts';
 import { Link } from 'react-router-dom';
-import './Home.css'; // We'll create this
-import MagnetLines from '../components/MagnetLines'; // update path if needed
+import './Home.css'; 
+import MagnetLines from '../components/MagnetLines'; 
+import DotGrid from '../components/DotGrid';
+
 
 
 export default function Home() {
@@ -10,9 +12,30 @@ export default function Home() {
 
   return (
     <div className="home">
-      {/* SECTION 1: Hero/Parallax Placeholder */}
-      <section className="home-hero">
-        <div className="hero-content">
+      <section
+        className="home-hero"
+        style={{ position: 'relative', height: '600px', overflow: 'hidden' }}
+      >
+        {/* DotGrid background */}
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+          <DotGrid
+            dotSize={10}
+            gap={15}
+            baseColor="#ffffff"
+            activeColor="#5db075"
+            proximity={120}
+            shockRadius={250}
+            shockStrength={5}
+            resistance={750}
+            returnDuration={1.5}
+          />
+        </div>
+
+        {/* Hero content on top */}
+        <div
+          className="hero-content"
+          style={{ position: 'relative', zIndex: 1, color: 'white', textAlign: 'center' }}
+        >
           <h1>Welcome to DISKI</h1>
           <p>Your go-to app for 5-a-side football bookings</p>
         </div>

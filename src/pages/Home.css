@@ -13,6 +13,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  overflow: hidden;
 }
 
 .hero-content h1 {
@@ -170,5 +171,23 @@
   font-size: 1rem;
   transition: background-color 0.3s;
 }
+
+.home-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  background: #000; /* Optional dark background for contrast */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+}
+
 
 
