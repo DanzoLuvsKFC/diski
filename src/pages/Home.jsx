@@ -1,6 +1,8 @@
 import courts from '../data/courts';
 import { Link } from 'react-router-dom';
 import './Home.css'; // We'll create this
+import MagnetLines from '../components/MagnetLines'; // update path if needed
+
 
 export default function Home() {
   // Sort courts by review count and get top 9
@@ -33,11 +35,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 3: Call-to-action */}
       <section className="home-cta">
-        <h2>Find courts near you</h2>
-        <Link to="/courts" className="cta-button">Browse Courts</Link>
+        {/* Background effect */}
+        <div className="magnet-background">
+          <MagnetLines
+            rows={15}
+            columns={15}
+            containerSize="100%"
+            lineColor="#5db075"
+            lineWidth="0.8vmin"
+            lineHeight="5vmin"
+            baseAngle={0}
+          />
+        </div>
+
+        {/* Foreground CTA */}
+        <div className="cta-content">
+          <h2>Find courts near you</h2>
+          <Link to="/courts" className="cta-button">Browse Courts</Link>
+        </div>
       </section>
+
     </div>
   );
 }
