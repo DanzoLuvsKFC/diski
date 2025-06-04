@@ -20,7 +20,7 @@ export default function Home() {
         <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
           <DotGrid
             dotSize={10}
-            gap={40}
+            gap={15}
             baseColor="#5db075"
             activeColor="#ffffff"
             proximity={120}
@@ -36,7 +36,7 @@ export default function Home() {
           className="hero-content"
           style={{ position: 'relative', zIndex: 1, color: 'white', textAlign: 'center' }}
         >
-          <h1>Welcome to DISKI</h1>
+          <h1>Welcome to DiSK!</h1>
           <p>Your go-to app for 5-a-side football bookings</p>
         </div>
       </section>
