@@ -1,5 +1,3 @@
-// CourtDetails.jsx
-
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
@@ -50,10 +48,15 @@ export default function CourtDetails() {
   if (loading) return <p style={{ padding: '1rem' }}>Loading court details...</p>;
   if (!court) return <p style={{ padding: '1rem' }}>Court not found</p>;
 
+  // Instead of showing image, add "no-image" class to wrapper to show color background instead
+  const wrapperClassName = 'court-image-wrapper no-image';
+
   return (
     <div className="court-details-container">
-      <div>
-        <img src={court.image} alt={court.name} className="court-image" />
+      <div className={wrapperClassName}>
+        {/* Image is hidden because of no-image class */}
+        {/* <img src={court.image} alt={court.name} className="court-image" /> */}
+        <div className="court-area-overlay">{court.location}</div>
       </div>
 
       <div className="court-content">
