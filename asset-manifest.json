@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/diski/static/css/main.4f05f92b.css",
+    "main.css": "/diski/static/css/main.df118712.css",
     "main.js": "/diski/static/js/main.5a36dde1.js",
     "index.html": "/diski/index.html",
-    "main.4f05f92b.css.map": "/diski/static/css/main.4f05f92b.css.map",
+    "main.df118712.css.map": "/diski/static/css/main.df118712.css.map",
     "main.5a36dde1.js.map": "/diski/static/js/main.5a36dde1.js.map"
   },
   "entrypoints": [
-    "static/css/main.4f05f92b.css",
+    "static/css/main.df118712.css",
     "static/js/main.5a36dde1.js"
   ]
 }
