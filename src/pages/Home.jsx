@@ -7,7 +7,6 @@ import DotGrid from '../components/DotGrid';
 
 
 export default function Home() {
-  // Sort courts by review count and get top 9
   const topCourts = [...courts].sort((a, b) => b.reviews - a.reviews).slice(0, 3);
 
   return (

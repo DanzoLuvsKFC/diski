@@ -11,9 +11,8 @@
   overflow: hidden;
 }
 
-/* New: when no image, show background color */
 .court-image-wrapper.no-image {
-  background-color: #5db075; /* example green */
+  background-color: #5db075; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +20,7 @@
 }
 
 .court-image-wrapper.no-image img.court-image {
-  display: none; /* hide image */
+  display: none; 
 }
 
 .court-image {
