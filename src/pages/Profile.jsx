@@ -1,14 +1,14 @@
 import { useAuth } from '../context/AuthContext';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; 
-
+import { useNavigate } from 'react-router-dom';
+import './Profilestyle.css';
 
 export default function Profile() {
   const { user, profile, setProfile } = useAuth();
   const [isEditing, setIsEditing] = useState(false);
   const [tempProfile, setTempProfile] = useState(profile);
-  const navigate = useNavigate(); 
- 
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (!user) {
       navigate('/signup');
@@ -17,12 +17,10 @@ export default function Profile() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     if (name === 'rating') {
       const num = parseInt(value);
       if (num > 99) return;
     }
-
     setTempProfile(prev => ({ ...prev, [name]: value }));
   };
 
@@ -37,44 +35,61 @@ export default function Profile() {
   };
 
   return (
-    <div style={{ padding: '1rem' }}>
-      <h1>Welcome, {user?.name}</h1>
-      <p>Email: {user?.email}</p>
+    <div className="profile-container">
+      <h1>{user?.name}</h1>
+      
 
-      <h2>Soccer Profile</h2>
+      <h2>Player Card</h2>
 
       {!isEditing ? (
-        <div style={{ lineHeight: '1.8' }}>
-          <p><strong>Preferred Foot:</strong> {profile.preferredFoot || 'Not set'}</p>
-          <p><strong>Position:</strong> {profile.position || 'Not set'}</p>
-          <p><strong>Club:</strong> {profile.club || 'Not set'}</p>
-          <p><strong>Overall Rating:</strong> {profile.rating || 'Not set'}</p>
-          <p><strong>Goals:</strong> {profile.goals || 'Not set'}</p>
-          <p><strong>Assists:</strong> {profile.assists || 'Not set'}</p>
-          <button onClick={handleEdit}>Edit Preferences</button>
+        <div className="preferences-wrapper">
+          <div className="preferences-container">
+            <div className="performance-metrics">
+              <div className="bento-box labelled">
+                <strong>Overall</strong>
+                <div className="large">{profile.rating || 'N/A'}</div>
+              </div>
+
+              <div className="bento-box labelled">
+                <strong>Goals</strong>
+                <div className="large">{profile.goals || 0}</div>
+              </div>
+
+              <div className="bento-box labelled">
+                <strong>Assists</strong>
+                <div className="large">{profile.assists || 0}</div>
+              </div>
+            </div>
+
+            <div className="personal-info">
+              <div className="bento-box">
+                <strong>Preferred Foot:</strong>
+                <span>{profile.preferredFoot || 'Not set'}</span>
+              </div>
+              <div className="bento-box">
+                <strong>Position:</strong>
+                <span>{profile.position || 'Not set'}</span>
+              </div>
+              <div className="bento-box">
+                <strong>Club:</strong>
+                <span>{profile.club || 'Not set'}</span>
+              </div>
+            </div>
+          </div>
+          <button className="edit-btn" onClick={handleEdit}>Edit Preferences</button>
         </div>
       ) : (
-        <form
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '1rem',
-            maxWidth: '400px',
-            marginTop: '1rem'
-          }}
-        >
-          <div>
-            <label>Preferred Foot:</label>
+        <form className="profile-form">
+          <label>Preferred Foot:
             <select name="preferredFoot" value={tempProfile.preferredFoot} onChange={handleChange}>
               <option value="">-- Select --</option>
               <option value="Left">Left</option>
               <option value="Right">Right</option>
               <option value="Both">Both</option>
             </select>
-          </div>
+          </label>
 
-          <div>
-            <label>Position:</label>
+          <label>Position:
             <select name="position" value={tempProfile.position} onChange={handleChange}>
               <option value="">-- Select --</option>
               <option value="Goalkeeper">Goalkeeper</option>
@@ -88,52 +103,25 @@ export default function Profile() {
               <option value="Winger">Winger</option>
               <option value="Striker">Striker</option>
             </select>
-          </div>
+          </label>
 
-          <div>
-            <label>Club:</label>
-            <input
-              type="text"
-              name="club"
-              value={tempProfile.club}
-              onChange={handleChange}
-              placeholder="e.g. FC Thriftball"
-            />
-          </div>
+          <label>Club:
+            <input type="text" name="club" value={tempProfile.club} onChange={handleChange} placeholder="e.g. FC Thriftball" />
+          </label>
 
-          <div>
-            <label>Overall Rating (1–99):</label>
-            <input
-              type="number"
-              name="rating"
-              value={tempProfile.rating}
-              onChange={handleChange}
-              min="1"
-              max="99"
-            />
-          </div>
+          <label>Overall Rating (1–99):
+            <input type="number" name="rating" value={tempProfile.rating} onChange={handleChange} min="1" max="99" />
+          </label>
 
-          <div>
-            <label>Goals Scored:</label>
-            <input
-              type="number"
-              name="goals"
-              value={tempProfile.goals}
-              onChange={handleChange}
-            />
-          </div>
+          <label>Goals Scored:
+            <input type="number" name="goals" value={tempProfile.goals} onChange={handleChange} />
+          </label>
 
-          <div>
-            <label>Assists:</label>
-            <input
-              type="number"
-              name="assists"
-              value={tempProfile.assists}
-              onChange={handleChange}
-            />
-          </div>
+          <label>Assists:
+            <input type="number" name="assists" value={tempProfile.assists} onChange={handleChange} />
+          </label>
 
-          <button type="button" onClick={handleSave}>Save</button>
+          <button type="button" className="save-btn" onClick={handleSave}>Save</button>
         </form>
       )}
     </div>
