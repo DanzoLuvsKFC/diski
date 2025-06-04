@@ -45,7 +45,15 @@ export default function CourtDetails() {
     setSelectedSlot('');
   };
 
-  if (loading) return <p style={{ padding: '1rem' }}>Loading court details...</p>;
+  if (loading) {
+    return (
+      <div className="courtdetail-loading">
+        <div className="spinner"></div>
+        <p>Loading court details...</p>
+      </div>
+    );
+  }
+
   if (!court) return <p style={{ padding: '1rem' }}>Court not found</p>;
 
   // Instead of showing image, add "no-image" class to wrapper to show color background instead

@@ -52,3 +52,28 @@
 .details-link:hover {
   color: #0056b3;
 }
+
+.courts-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
+  font-size: 1.5rem;
+  color: #5db075;
+}
+
+.spinner {
+  border: 6px solid #e0e0e0;
+  border-top: 6px solid #5db075;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

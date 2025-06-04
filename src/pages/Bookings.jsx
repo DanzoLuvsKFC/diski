@@ -38,7 +38,7 @@ export default function Bookings() {
 
   return (
     <div className="bookings-container">
-      <h1 className="booking-title">📅 Your Bookings</h1>
+      <h1 className="booking-title">Your Bookings</h1>
 
       <section className="booking-section">
         <h2>Upcoming</h2>

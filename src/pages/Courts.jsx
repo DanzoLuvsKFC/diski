@@ -26,8 +26,9 @@ export default function Courts() {
 
   if (loading) {
     return (
-      <div className="loading">
-        ⚽ Loading courts...
+      <div className="courts-loading">
+        <div className="spinner"></div>
+        <p>Loading courts near you...</p>
       </div>
     );
   }
