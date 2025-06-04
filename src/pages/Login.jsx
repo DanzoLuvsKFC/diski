@@ -5,7 +5,6 @@ export default function Login() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Redirect to signup page automatically
     navigate('/signup');
   }, [navigate]);
 

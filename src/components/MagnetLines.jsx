@@ -5,7 +5,7 @@ export default function MagnetLines({
   rows = 9,
   columns = 9,
   containerSize = "100%",
-  lineColor = "#5db075", // ✅ CHANGED from #efefef
+  lineColor = "#5db075", 
   lineWidth = "1vmin",
   lineHeight = "6vmin",
   baseAngle = -10,

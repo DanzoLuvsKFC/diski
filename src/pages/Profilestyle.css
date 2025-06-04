@@ -13,7 +13,7 @@
   margin-bottom: 2rem;
 }
 
-/* New wrapper for aligning profile boxes in two columns */
+
 .preferences-wrapper {
   display: flex;
   flex-direction: column;

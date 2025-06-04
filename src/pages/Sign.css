@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 92vh; /* fills screen height, minus footer */
+  min-height: 92vh; 
   padding: 2rem;
   background-color: #ffffff;
 }

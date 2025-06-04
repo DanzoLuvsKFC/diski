@@ -3,13 +3,13 @@
   transform-origin: center;
   will-change: transform;
   transform: rotate(var(--rotate));
-  filter: blur(0.5px); /* subtle blur */
+  filter: blur(0.5px); 
   opacity: 0.6;
 }
 
 .magnetLines-container span {
   display: block;
-  transform: rotate(var(--rotate, 0deg)); /* Add fallback */
+  transform: rotate(var(--rotate, 0deg)); 
   transform-origin: center;
   will-change: transform;
   opacity: 0.3;

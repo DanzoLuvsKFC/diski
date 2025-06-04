@@ -27,7 +27,7 @@ export default function SignUp() {
         <h1>Sign Up</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            {/* Removed the label and added placeholder */}
+            
             <input
               type="text"
               value={name}
@@ -36,7 +36,7 @@ export default function SignUp() {
             />
           </div>
           <div className="form-group">
-            {/* Removed the label and added placeholder */}
+            
             <input
               type="email"
               value={email}

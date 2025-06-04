@@ -5,7 +5,7 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [bookings, setBookings] = useState([]);
-  const [bookingHistory, setBookingHistory] = useState([]); // ✅ new
+  const [bookingHistory, setBookingHistory] = useState([]); 
   const [profile, setProfile] = useState({
     preferredFoot: '',
     position: '',
@@ -38,7 +38,7 @@ export function AuthProvider({ children }) {
     setBookings(prev => [...prev, { court, slot }]);
   };
 
-  // ✅ move a booking to history
+ 
   const markAsPlayedOrCancelled = (index) => {
     const bookingToMove = bookings[index];
     setBookings(prev => prev.filter((_, i) => i !== index));

@@ -56,14 +56,12 @@ export default function CourtDetails() {
 
   if (!court) return <p style={{ padding: '1rem' }}>Court not found</p>;
 
-  // Instead of showing image, add "no-image" class to wrapper to show color background instead
+  
   const wrapperClassName = 'court-image-wrapper no-image';
 
   return (
     <div className="court-details-container">
       <div className={wrapperClassName}>
-        {/* Image is hidden because of no-image class */}
-        {/* <img src={court.image} alt={court.name} className="court-image" /> */}
         <div className="court-area-overlay">{court.location}</div>
       </div>
 

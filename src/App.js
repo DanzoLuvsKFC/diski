@@ -12,11 +12,11 @@ import SignUp from './pages/SignUp';
 function App() {
   return (
     <Router basename='/diski'>
-      {/* Layout wrapper that stretches full height */}
+      
       <div className="app-layout">
         <Navbar />
         
-        {/* Main content area that fills space and pushes footer down */}
+        
         <main className="app-main">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -29,7 +29,7 @@ function App() {
           </Routes>
         </main>
 
-        {/* Always sticks to the bottom */}
+        
         <Footer />
       </div>
     </Router>
